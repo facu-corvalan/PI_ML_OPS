@@ -30,12 +30,6 @@ Realice el proceso EDA  (Exploratory Data Analysis) en el DataSet obtenido en el
 Este modelo de  Machine Learning entrega recomendaciones de juegos precisas y personalizadas para cada usuario  con la utilizacion de algoritmos y tecnicas como la similitud del coseno y scikit-lear .
 
 ### 4. Deployment de la API
-Creamos una API utilizando el módulo FastAPI de Python, creando 5 funciones para que puedan ser consultadas:
-- def PlayTimeGenre( genero : str ): Debe devolver año con mas horas jugadas para dicho género. Ejemplo de input: casual , sports 
-- def UserForGenre( genero : str ): Debe devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año. Ejemplo de input: action , adventure 
-- def UsersRecommend( año : int ): Devuelve el top 3 de juegos MÁS recomendados por usuarios para el año dado. (reviews.recommend = True y comentarios positivos/neutrales) Ejemplo de input: 2014 , 2009 
-- def UsersWorstDeveloper( año : int ): Devuelve el top 3 de desarrolladoras con juegos MENOS recomendados por usuarios para el año dado: 2009 , 2012
-- def sentiment_analysis( empresa desarrolladora : str ): Según la empresa desarrolladora, se devuelve un diccionario con el nombre de la desarrolladora como llave y una lista con la cantidad total de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento como valor. Ejemplo de input: Valve
 
 Luego realizamos el deployement de esta API utilizando Render.
 ## Enlaces : 
