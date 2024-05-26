@@ -24,20 +24,22 @@ Otorgando una interfaz intuitiva para el usuario donde podra consultar datos sob
 ## Resolución :
 ### 1. [ETL :](ETL)
 
-![Mando](imagenes/ETL.jpg)
+<img src="imagenes/ETL.jpg" alt="ETL" width="400" height="200">
+
+![ETL](imagenes/ETL.jpg)
 
 Realice el proceso de ETL (extracción, transformación y carga ) con los archivos obtenidos de distintas fuentes para su posterior análisis y utilización dentro del modelo de ML.
 
 ### 2. [EDA :](EDA)
 
-![Mando](imagenes/EDA.jpg)
+![EDA](imagenes/EDA.jpg)
 
 El analisis exploratoria (EDA) se realizo dentro de cada ETL pero a su vez se genero un archivo llamado [EDA :](EDA.ipynb), en el cual se repesenta graficamente el proceso de analisis de los datos.
 Este analisis nos permite identificar relaciones, tendencias y/o patrones, tal que, nos sirva para la creacion y ejecucion del modelo de ML
 
 ### 3. Deployment de la API
 
-![Mando](imagenes/API.jpg)
+![API](imagenes/API.jpg)
 
 Creamos una API utilizando el módulo FastAPI de Python, creando 5 funciones para que puedan ser consultadas:
 - developer(desarrollador: str):
