@@ -104,6 +104,7 @@ def UserForGenre(genre: str = Query(default='Action')):
         "Horas jugadas": year_playtime
     }
 
+
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @app.get('/best_developer_year', tags=['Mejor Desarrollador'])
