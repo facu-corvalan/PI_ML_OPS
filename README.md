@@ -6,7 +6,7 @@
 Este proyecto consiste en crear una API para Steam, construyendo un modelo de recomendacion basado en Machine Learning . 
 Otorgando una interfaz intuitiva para el usuario donde podra consultar datos sobre generos , fechas , sentiment score ,etc. De manera puntual.
 
-<img src="imagenes/mando.jpg" alt="Mando" width="1000" height="800">
+<img src="imagenes/mando.jpg" alt="Mando" width="900" height="500">
 
 
 ## Tecnologías utilizadas :
@@ -25,7 +25,7 @@ Otorgando una interfaz intuitiva para el usuario donde podra consultar datos sob
 ## Resolución :
 ### 1. [ETL :](ETL)
 
-<img src="imagenes/ETL.jpg" alt="ETL" width="900" height="200">
+<img src="imagenes/ETL.jpg" alt="ETL" width="800" height="300">
 
 ![ETL](imagenes/ETL.jpg)
 
