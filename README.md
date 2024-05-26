@@ -39,5 +39,5 @@ Creamos una API utilizando el módulo FastAPI de Python, creando 5 funciones par
 
 Luego realizamos el deployement de esta API utilizando Render.
 ## Enlaces : 
-- [API](https://alejo-diez-gomez-pi-ml-ops.onrender.com/)
+- [API](https://recomendacion-de-juegos-b6zg.onrender.com/docs#/desarrollador/developer_developer_get)
 - [Video explicativo]("LINK")
