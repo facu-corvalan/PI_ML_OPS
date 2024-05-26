@@ -3,8 +3,11 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+app = FastAPI( 
+    title = 'Sistema de recomendacion de juegos Steam',
+    version='1.0 / Facundo Corvalan '
+)
 
-app = FastAPI()
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 @app.get("/developer", tags=["Desarrollador"])
@@ -104,7 +107,6 @@ def UserForGenre(genre: str = Query(default='Action')):
         "Horas jugadas": year_playtime
     }
 
-
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @app.get('/best_developer_year', tags=['Mejor Desarrollador'])
@@ -139,6 +141,7 @@ def best_developer_year( año : int= Query(default='2000' )):
         {"Puesto 1": top_developers[0]},
         {"Puesto 2": top_developers[1]},
         {"Puesto 3": top_developers[2]}]
+
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @app.get('/developer_reviews_analysis', tags=['Reseña de Desarrolladores'])
@@ -155,7 +158,7 @@ def developer_reviews_analysis(desarrolladora: str = Query(default='Bohemia Inte
     reviews = pd.read_parquet('Dataset/developer_review_reviews.parquet')  # Cargar datos de reseñas
 
     # Filtrar los juegos por el desarrollador especificado
-    developer_games = games[games['developer'] == desarrolladora]
+    developer_games = games[games['developer'] == desarrolladora] 
     
     # Combinar datos de juegos y reseñas basado en el id del juego
     merged_data = developer_games.merge(reviews, left_on='id', right_on='item_id', how='inner')

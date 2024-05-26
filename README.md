@@ -10,12 +10,12 @@ Otorgando una interfaz intuitiva para el usuario donde podra consultar datos sob
 
 
 ## Tecnologías utilizadas :
+- Python
 - FastAPI
 - Matplotlib
 - NLTK
 - Numpy
 - Pandas
-- Python
 - Render
 - Scikit-Learn
 - Seaborn
@@ -33,7 +33,7 @@ Realice el proceso de ETL (extracción, transformación y carga ) con los archiv
 
 ![EDA](imagenes/EDA.jpg)
 
-El analisis exploratoria (EDA) se realizo dentro de cada ETL pero a su vez se genero un archivo llamado [EDA :](EDA.ipynb), en el cual se repesenta graficamente el proceso de analisis de los datos.
+El analisis exploratoria (EDA) se realizo dentro de cada ETL pero a su vez se genero un archivo llamado [EDA](EDA/EDA.ipynb), en el cual se repesenta graficamente el proceso de analisis de los datos.
 Este analisis nos permite identificar relaciones, tendencias y/o patrones, tal que, nos sirva para la creacion y ejecucion del modelo de ML
 
 ### 3. Deployment de la API
@@ -57,6 +57,7 @@ Creamos una API utilizando el módulo FastAPI de Python, creando 5 funciones par
   Ofrece un análisis de las reseñas de usuarios para una empresa desarrolladora, mostrando la cantidad total de registros clasificados como positivos o negativos.
 
 Luego realizamos el deployement de esta API utilizando Render.
+
 ## Enlaces : 
 - [API](https://recomendacion-de-juegos-b6zg.onrender.com/docs#/desarrollador/developer_developer_get)
 - [Video explicativo]("LINK")
