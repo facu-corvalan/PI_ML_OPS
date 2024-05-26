@@ -33,7 +33,7 @@ Realice el proceso de ETL (extracción, transformación y carga ) con los archiv
 
 ![EDA](imagenes/EDA.jpg)
 
-El analisis exploratoria (EDA) se realizo dentro de cada ETL pero a su vez se genero un archivo llamado [EDA :](EDA.ipynb), en el cual se repesenta graficamente el proceso de analisis de los datos.
+El analisis exploratoria (EDA) se realizo dentro de cada ETL pero a su vez se genero un archivo llamado [EDA](EDA/EDA.ipynb), en el cual se repesenta graficamente el proceso de analisis de los datos.
 Este analisis nos permite identificar relaciones, tendencias y/o patrones, tal que, nos sirva para la creacion y ejecucion del modelo de ML
 
 ### 3. Deployment de la API
