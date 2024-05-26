@@ -25,8 +25,6 @@ Otorgando una interfaz intuitiva para el usuario donde podra consultar datos sob
 ## Resolución :
 ### 1. [ETL :](ETL)
 
-<img src="imagenes/ETL.jpg" alt="ETL" width="800" height="300">
-
 ![ETL](imagenes/ETL.jpg)
 
 Realice el proceso de ETL (extracción, transformación y carga ) con los archivos obtenidos de distintas fuentes para su posterior análisis y utilización dentro del modelo de ML.
