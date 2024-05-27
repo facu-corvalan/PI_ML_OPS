@@ -176,3 +176,32 @@ def developer_reviews_analysis(desarrolladora: str = Query(default='Bohemia Inte
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+@app.get('/Recomendacion Juego', tags=['Recomendacion'])
+
+def recomendacion_juego(id_de_producto: int= Query(default='670290')):
+    
+    '''Ingresa un ID de un juego y retorna una lista de juegos similares que te pueden interesar 
+    usan un modelo de similitud del coseno'''
+
+    games = pd.read_parquet('Dataset/game_recommendation.parquet')
+
+    atributos = games[games['id'] == id_de_producto]
+    
+    if atributos.empty:
+        return 'No se encontró un juego con el ID proporcionado, prueba otro ID.'
+    
+    juegos = games[games['genres'] == atributos['genres'].iloc[0]]
+    juegos= juegos[['title','genres']]
+    juegos['caracteristicas'] = juegos[['genres']].apply(lambda row: '-'.join(row.values.astype(str)), axis=1) 
+    juegos= juegos[['title','caracteristicas']].iloc[:1001,:]
+    
+    vector= TfidfVectorizer()
+    matriz= vector.fit_transform(juegos['caracteristicas'])
+    matriz_similaridad= cosine_similarity(matriz)
+    
+    indice_juego = juegos.index[juegos['title'] == atributos['title'].iloc[0]].tolist()[0]
+    similares = list(enumerate(matriz_similaridad[indice_juego]))
+    similaridades = sorted(similares, key=lambda x: x[1], reverse=True)[1:6]
+    juegos_recomendados = [juegos.iloc[i[0]]['title'] for i in similaridades]
+    
+    return {'Juegos similares que te pueden interesar': juegos_recomendados}
