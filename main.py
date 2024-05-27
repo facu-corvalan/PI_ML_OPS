@@ -50,13 +50,7 @@ async def developer(developer : str = Query(default='Bohemia Interactive')):
     
     return games
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@app.get('/userdata', tags=['Informacion del Jugador'])
 
-def userdata( User_id : str ):
-    """
-    def userdata( User_id : str ): Debe devolver cantidad de dinero gastado por el usuario, el porcentaje de recomendación en base a reviews.recommend y cantidad de items.
-    Ejemplo de retorno: {"Usuario X" : us213ndjss09sdf, "Dinero gastado": 200 USD, "% de recomendación": 20%, "cantidad de items": 5}
-    """
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -180,10 +174,10 @@ def developer_reviews_analysis(desarrolladora: str = Query(default='Bohemia Inte
 
 def recomendacion_juego(id_de_producto: int= Query(default='670290')):
     
-    '''Ingresa un ID de un juego y retorna una lista de juegos similares que te pueden interesar 
-    usan un modelo de similitud del coseno'''
-
     games = pd.read_parquet('Dataset/game_recommendation.parquet')
+
+    id_de_producto = str(id_de_producto)
+    games['id'] = games['id'].astype(str)
 
     atributos = games[games['id'] == id_de_producto]
     
