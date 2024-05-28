@@ -19,7 +19,7 @@ async def developer(developer : str = Query(default='Bohemia Interactive')):
     Parametro
     ---------  
         Ingrese el nombre de un desarrollador
-            desarrollador :  Bohemia Interactive, Kotoshiro , Poolians.com, Secret Level SRL
+            desarrollador :  Bohemia Interactive, Laush Dmitriy Sergeevich , Poolians.com, Secret Level SRL
     
     Retorna
     -------
@@ -66,7 +66,7 @@ def UserForGenre(genre: str = Query(default='Action')):
     Parametro
     ---------  
         Ejemplos de parametros
-            Genero :  Action , Indie , Adventure , RPG , Casual
+            Genero :  Action , Indie , Casual , Simulation
     
     Retorna
     -------
@@ -159,7 +159,7 @@ def developer_reviews_analysis(desarrolladora: str = Query(default='Bohemia Inte
     Parametro
     ---------  
         Ejemplos de parametros
-            Genero :  Valve , Bohemia Interactive , Kotoshiro , Poolians.com	
+            Genero :  Valve , Bohemia Interactive , Funcom , Humongous Entertainment , Epic Games, Inc.	
     
     Retorna
     -------
