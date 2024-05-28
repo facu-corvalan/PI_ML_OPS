@@ -19,14 +19,11 @@ async def developer(developer : str = Query(default='Bohemia Interactive')):
     Parametro
     ---------  
         Ingrese el nombre de un desarrollador
-            desarrollador :  Bohemia Interactive, Kotoshiro , Poolians.com	, Secret Level SRL
+            desarrollador :  Bohemia Interactive, Kotoshiro , Poolians.com, Secret Level SRL
     
     Retorna
     -------
-            Anio                         : Año
-            Cantidad Items               : Videos juegos desarrollados
-            Porcentaje de contenido Free : Porcetnaje de contenidos gratuito
-    
+        La cantidad de juegos hechos y el porcentaje de juegos gratis hechos por año
     """
 
     
