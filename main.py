@@ -170,7 +170,7 @@ def developer_reviews_analysis(desarrolladora: str = Query(default='Bohemia Inte
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-@app.get('/Recomendacion Juego', tags=['Recomendacion'])
+@app.get('/recomendacion_de_juegos', tags=['Recomendacion de juegos'])
 
 def recomendacion_juego(id_de_producto: int= Query(default='670290')):
     
