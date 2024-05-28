@@ -14,16 +14,22 @@ app = FastAPI(
 
 async def developer(developer : str = Query(default='Bohemia Interactive')):
     """
-    End point 1
-    - def developer( desarrollador : str ): Cantidad de items y porcentaje de contenido Free
-      por año según empresa desarrolladora. Ejemplo de retorno:
-
-    - Año	Cantidad de Items	Contenido Free
-    - 2023	      50	              27%
-    - 2022	      45	              25%
-    - xxxx	      xx	              xx%
-
+    <strong>Devuelve un diccionario año, cantidad de items y porcentaje de contenido libre por empresa desarrolladora</strong>
+             
+    Parametro
+    ---------  
+        Ingrese el nombre de un desarrollador
+            desarrollador :  Bohemia Interactive, Kotoshiro , Poolians.com	, Secret Level SRL
+    
+    Retorna
+    -------
+            Anio                         : Año
+            Cantidad Items               : Videos juegos desarrollados
+            Porcentaje de contenido Free : Porcetnaje de contenidos gratuito
+    
     """
+
+    
     games = pd.read_parquet('Dataset/developer.parquet')
 
     # Filtramos por el desarrollador ingresado
@@ -58,17 +64,17 @@ async def developer(developer : str = Query(default='Bohemia Interactive')):
 
 def UserForGenre(genre: str = Query(default='Action')):
     """
-    Endpoint para obtener el usuario con más horas jugadas y la acumulación de horas jugadas por año de lanzamiento para un género dado.
-
-    Ejemplo de retorno:
-    {
-        "Usuario con más horas jugadas para Género X": "us213ndjss09sdf",
-        "Horas jugadas": [
-            {"Año": 2013, "Horas jugadas": 203},
-            {"Año": 2012, "Horas jugadas": 100},
-            {"Año": 2011, "Horas jugadas": 23}
-        ]
-    }
+    <strong>Devuelve el usuario con más horas jugadas y la acumulacion de horas jugadas por el año de lanzamiento para un género dado</strong>
+             
+    Parametro
+    ---------  
+        Ejemplos de parametros
+            Genero :  Action , Indie , Adventure , RPG , Casual
+    
+    Retorna
+    -------
+        Usuario con más horas jugadas para el género ingresado y cantidad de horas jugadas por año
+    
     """
     games = pd.read_parquet('Dataset/user_genre_games.parquet')
     items = pd.read_parquet('Dataset/user_genre_items.parquet')
@@ -107,9 +113,18 @@ def UserForGenre(genre: str = Query(default='Action')):
 
 def best_developer_year( año : int= Query(default='2000' )):
     """
-    4) enpoint:
-    - def best_developer_year( año : int ): Devuelve el top 3 de desarrolladores con juegos MÁS recomendados por usuarios para el año dado. (reviews.recommend = True y comentarios positivos)
-    - Ejemplo de retorno: [{"Puesto 1" : X}, {"Puesto 2" : Y},{"Puesto 3" : Z}]
+
+    <strong> Top 3 desarrolladores con más juegos recomendados y reseñas positivas para el año ingresado </strong>
+             
+    Parametro
+    ---------  
+        Ejemplos de parametros
+            Genero :  2000 , 2005 , 2015 , 1998 
+    
+    Retorna
+    -------
+        Top 3 desarrolladores con más juegos recomendados y reseñas positivas para el año ingresado.')):
+
     """
     games = pd.read_parquet('Dataset/best_developer_games.parquet')
     reviews = pd.read_parquet('Dataset/best_developer_reviews.parquet')
@@ -142,11 +157,17 @@ def best_developer_year( año : int= Query(default='2000' )):
 
 def developer_reviews_analysis(desarrolladora: str = Query(default='Bohemia Interactive')):
     """
-    Según el desarrollador, se devuelve un diccionario con el nombre del desarrollador como llave
-    y una lista con la cantidad total de registros de reseñas de usuarios que se encuentren categorizados
-    con un análisis de sentimiento como valor positivo o negativo.
+    <strong> Reseña de los desarroladores, si es postiva o si es negativa </strong>
+             
+    Parametro
+    ---------  
+        Ejemplos de parametros
+            Genero :  Valve , Bohemia Interactive , Kotoshiro , Poolians.com	
+    
+    Retorna
+    -------
+        Cantidad de reseñas positivas y negativas para el desarrollador ingresado
 
-    Ejemplo de retorno: {'Valve': {'Negativas': 182, 'Positivas': 278}}
     """
     games = pd.read_parquet('Dataset/developer_review_games.parquet')  # Cargar datos de juegos
     reviews = pd.read_parquet('Dataset/developer_review_reviews.parquet')  # Cargar datos de reseñas
@@ -172,8 +193,20 @@ def developer_reviews_analysis(desarrolladora: str = Query(default='Bohemia Inte
 
 @app.get('/recomendacion_de_juegos', tags=['Recomendacion de juegos'])
 
-def recomendacion_juego(id_de_producto: int= Query(default='670290')):
+def recomendacion_juego(id_de_producto: int= Query(default='1640')):
+    """ 
+    <strong> Recomendador de juegos similares, toma el ID y te devuelve 5 juegos recomendados del mismo genero </strong>
+             
+    Parametro
+    ---------  
+        Ejemplos de parametros
+            Genero :  716110 , 670290 , 775880 , 1640
     
+    Retorna
+    -------
+        Recomendación de 5 juegos similares
+
+     """
     games = pd.read_parquet('Dataset/game_recommendation.parquet')
 
     id_de_producto = str(id_de_producto)
