@@ -54,9 +54,6 @@ async def developer(developer : str = Query(default='Bohemia Interactive')):
     return games
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 @app.get('/User_For_Genre', tags=['Jugador por Género'])
 
 def UserForGenre(genre: str = Query(default='Action')):
@@ -110,7 +107,6 @@ def UserForGenre(genre: str = Query(default='Action')):
 
 def best_developer_year( año : int= Query(default='2000' )):
     """
-
     <strong> Top 3 desarrolladores con más juegos recomendados y reseñas positivas para el año ingresado </strong>
              
     Parametro
@@ -120,7 +116,7 @@ def best_developer_year( año : int= Query(default='2000' )):
     
     Retorna
     -------
-        Top 3 desarrolladores con más juegos recomendados y reseñas positivas para el año ingresado.')):
+        Top 3 desarrolladores con más juegos recomendados y reseñas positivas para el año ingresado
 
     """
     games = pd.read_parquet('Dataset/best_developer_games.parquet')
