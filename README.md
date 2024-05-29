@@ -61,4 +61,4 @@ Luego realizamos el deployement de esta API utilizando Render.
 
 ## Enlaces : 
 - [API](https://recomendacion-de-juegos-b6zg.onrender.com/docs#/desarrollador/developer_developer_get)
-- [Video explicativo]("https://youtu.be/aZKEAiAjtcs")
+- [Video explicativo]("https://youtu.be/aZKEAiAjtcs?si=7kUubKvb8dHXvtjn")
