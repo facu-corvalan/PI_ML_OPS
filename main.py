@@ -243,3 +243,5 @@ def recomendacion_juego(id_de_producto: int= Query(default='1640')):
     juegos_recomendados = [juegos.iloc[i[0]]['title'] for i in similaridades]
     
     return {'Juegos similares que te pueden interesar': juegos_recomendados}
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
