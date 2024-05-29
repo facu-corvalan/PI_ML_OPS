@@ -202,26 +202,44 @@ def recomendacion_juego(id_de_producto: int= Query(default='1640')):
      """
     games = pd.read_parquet('Dataset/game_recommendation.parquet')
 
+    # Convierto el id_de_producto a cadena de texto
     id_de_producto = str(id_de_producto)
+
+    # Transformamos la columna 'id' del dataframe games en formato de str
     games['id'] = games['id'].astype(str)
 
+    #Filtramos el Dataframe para obtener el juego que coincide con el id_producto
     atributos = games[games['id'] == id_de_producto]
     
+    #Si no encuentro ningun juego con el id proporcionado retorna un mensaje de error
     if atributos.empty:
         return 'No se encontró un juego con el ID proporcionado, prueba otro ID.'
     
+    #Filtra el dataframe para obteer juegos del mismo genero que el juego encontrado
     juegos = games[games['genres'] == atributos['genres'].iloc[0]]
+    #Seleccionar solo las columnas 'title' y 'genres' para los juegos filtrados
     juegos= juegos[['title','genres']]
+
+    #Crear una nueva columna que contiene las caracteristicas del juego
     juegos['caracteristicas'] = juegos[['genres']].apply(lambda row: '-'.join(row.values.astype(str)), axis=1) 
+    # Seleccionar solo las columnas 'title' y 'caracteristicas', y tomar hasta 1001 juegos
     juegos= juegos[['title','caracteristicas']].iloc[:1001,:]
     
+    #Crar una matriz TF-IDF de las caracteristicas de los juegos
     vector= TfidfVectorizer()
     matriz= vector.fit_transform(juegos['caracteristicas'])
+    #Calcular la matriz de similitud de coseno para los juegos
     matriz_similaridad= cosine_similarity(matriz)
     
+    #Encontrar el indice del juego original en la lista de juegos
     indice_juego = juegos.index[juegos['title'] == atributos['title'].iloc[0]].tolist()[0]
+
+    #Enumerar las similitudes del juego original con todos los demas juegos
     similares = list(enumerate(matriz_similaridad[indice_juego]))
+
+    #Ordenar los juegos similares por similitud en orden descendente y seleccionar los 5 más similares
     similaridades = sorted(similares, key=lambda x: x[1], reverse=True)[1:6]
+    #Obtener los titulos de los juegos recomendados
     juegos_recomendados = [juegos.iloc[i[0]]['title'] for i in similaridades]
     
     return {'Juegos similares que te pueden interesar': juegos_recomendados}
